@@ -27,13 +27,6 @@ class Queue:
     # move the time forward, proceed to next package in line when needed
     def forward(self, current_time, time_to_forward):
         time_forwarded = 0
-
-        """while time_to_forward > time_forwarded and len(self.q) > 0:
-            time_forwarded += self.q[0].forward(time_to_forward - time_forwarded)
-            if self.q[0].time_left == 0:
-                self.q.pop(0)
-                if len(self.q) > 0:
-                    self.waiting_time += (current_time + time_forwarded) - self.q[0].start_time"""
         i, max_iterations = 0, len(self.q)
         while time_to_forward > time_forwarded and i < max_iterations:
             time_forwarded += self.q[0].forward(time_to_forward - time_forwarded)
